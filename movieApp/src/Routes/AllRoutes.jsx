@@ -1,26 +1,39 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { MovieList } from "../pages/MovieList";
+import { MovieDetials } from "../pages/MovieDetials";
+import { Search } from "../pages/Search";
 export const AllRoutes = () => {
   return (
     <>
       <Routes>
         <Route
           path="/"
-          element={<MovieList title="Your Guide to Great Movies" />}
+          element={
+            <MovieList
+              title="Your Guide to Great Movies"
+              apiPath="movie/now_playing"
+            />
+          }
         />
         <Route
           path="/movies/popular"
-          element={<MovieList title="Popular Movies" />}
+          element={<MovieList title="Popular Movies" apiPath="movie/popular" />}
         />
         <Route
           path="/movies/top"
-          element={<MovieList title="Top Rated Movies" />}
+          element={
+            <MovieList title="Top Rated Movies" apiPath="movie/top_rated" />
+          }
         />
         <Route
           path="/movies/upcoming"
-          element={<MovieList title="Upcoming Movies" />}
+          element={
+            <MovieList title="Upcoming Movies" apiPath="movie/upcoming" />
+          }
         />
+        <Route path="/movie/:id" element={<MovieDetials />} />
+        <Route path="/search" element={<Search apiPath="search/movie" />} />
       </Routes>
     </>
   );
