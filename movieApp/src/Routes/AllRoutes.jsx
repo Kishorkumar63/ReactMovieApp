@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { MovieList } from "../pages/MovieList";
 import { MovieDetials } from "../pages/MovieDetials";
 import { Search } from "../pages/Search";
+import { PageNotFound } from "../pages/PageNotFound";
 export const AllRoutes = () => {
   return (
     <>
@@ -34,6 +35,7 @@ export const AllRoutes = () => {
         />
         <Route path="/movie/:id" element={<MovieDetials />} />
         <Route path="/search" element={<Search apiPath="search/movie" />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );
